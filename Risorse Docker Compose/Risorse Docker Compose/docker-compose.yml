@@ -1,0 +1,23 @@
+version: "3.1"
+
+services:
+
+  wordpress:
+    image: wordpress:5
+    ports:
+      - "8000:80"
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: lacerba_wordpress
+      MYSQL_USER: lacerba
+      MYSQL_PASSWORD: lacerba
+      MYSQL_ROOT_PASSWORD: supersecretpassword
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+
+volumes:
+  mysql-data:
+
